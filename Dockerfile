@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:latest
 
 MAINTAINER devops@cybertonica.com
 
@@ -18,7 +18,10 @@ RUN apk add --update ca-certificates \
     && apk add bash \
     && apk add py-pip \
     && apk add docker \
-    && pip install docker-compose \
+    && apk add python-dev \
+    && apk add libffi-dev \
+    && apk add build-base gcc abuild binutils binutils-doc gcc-doc openssl openssl-dev\
+    && pip install --upgrade pyopenssl \
     && pip install ansible \
     && curl -L https://storage.googleapis.com/kubernetes-release/release/${KUBE_LATEST_VERSION}/bin/linux/amd64/kubectl -o /usr/local/bin/kubectl \
     && chmod +x /usr/local/bin/kubectl \
