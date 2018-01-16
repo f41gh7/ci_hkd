@@ -18,7 +18,7 @@ RUN apk add --update ca-certificates \
     && apk add bash \
     && apk add py-pip \
     && apk add docker \
-    && apk openssh-client \
+    && apk add openssh-client \
     && apk add python-dev \
     && apk add libffi-dev \
     && apk add build-base gcc abuild binutils binutils-doc gcc-doc openssl openssl-dev\
